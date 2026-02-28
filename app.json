@@ -1,0 +1,126 @@
+{
+  "expo": {
+    "name": "pethero",
+    "slug": "pethero",
+    "owner": "jeffersonsousa",
+    "version": "1.0.1",
+    "orientation": "portrait",
+    "icon": "./assets/images/logo.png",
+    "scheme": "pethero-app",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/images/logo.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#F7931A"
+    },
+    "androidNavigationBar": {
+      "visible": "immersive"
+    },
+    "androidStatusBar": {
+      "hidden": true
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-image-picker",
+        {
+          "photoPermission": "PetHero asks this permission, so you can upload photos from your device."
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/logo.png",
+          "resizeMode": "cover",
+          "backgroundColor": "#F7931A"
+        }
+      ],
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Allow PetHero to access your photos",
+          "savePhotosPermission": "Allow PetHero to save photos.",
+          "isAccessMediaLocationEnabled": true
+        }
+      ],
+      [
+        "@stripe/stripe-react-native",
+        {
+          "merchantIdentifier": "merchant.com.pethero",
+          "enableGooglePay": true
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "PetHero needs location to track your service route.",
+          "locationAlwaysPermission": "Allow PetHero to track your route even when app is closed.",
+          "isIosBackgroundLocationEnabled": true,
+          "isAndroidBackgroundLocationEnabled": true        
+        }
+      ],
+      "expo-font",
+      "expo-video",
+      "expo-web-browser"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "ae0a3654-af8c-4b2e-a73e-74e977dc55ca"
+      }
+    },
+    "android": {
+      "package": "com.pethero.pethero",
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.POST_NOTIFICATIONS",
+        "android.permission.CAMERA",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_MEDIA_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",        
+        "android.permission.ACCESS_BACKGROUND_LOCATION",
+        "android.permission.FOREGROUND_SERVICE"
+      ],
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "data": [{ "scheme": "pethero-app" }],
+          "category": ["BROWSABLE", "DEFAULT"]
+        }
+      ]
+    },
+    "ios": {
+      "bundleIdentifier": "com.pethero.pethero",
+      "associatedDomains": ["applinks:petheroplus.com"],
+
+      "infoPlist": {
+        "UIBackgroundModes": ["remote-notification", "location"],
+        "NSUserTrackingUsageDescription": "Needed to send you notifications.",
+        "ITSAppUsesNonExemptEncryption": false,
+        "CAMERA": "PetHero needs pictures.",
+        "NSCameraUsageDescription": "PetHero needs pictures.",
+        "NSPhotoLibraryUsageDescription": "PetHero access your photo library.",
+        "NSPhotoLibraryAddUsageDescription": "PetHero saves images to your photo library.",
+        "NSLocationWhenInUseUsageDescription": "PetHero accesses your location while using it.",
+        "NSMicrophoneUsageDescription": "PetHero uses the microphone for videos.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "PetHero tracks your route during services.",
+        "NSLocationAlwaysUsageDescription": "PetHero tracks your route even when closed."
+      },
+      "entitlements": {
+        "aps-environment": "production"
+       }
+    }
+  }
+}
