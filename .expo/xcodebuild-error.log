@@ -1,0 +1,10 @@
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:iOS Simulator, arch:arm64, id:F49FB8B0-A533-4229-8514-4A5186306108, OS:18.6, name:iPhone 16 Pro Max }
+{ platform:iOS Simulator, arch:x86_64, id:F49FB8B0-A533-4229-8514-4A5186306108, OS:18.6, name:iPhone 16 Pro Max }
+** BUILD FAILED **
+
+
+The following build commands failed:
+	PhaseScriptExecution [CP-User]\ Generate\ app.config\ for\ prebuilt\ Constants.manifest /Users/fernandorisuenho/Library/Developer/Xcode/DerivedData/pethero-alxqdjssydptdnbsaueiwilsbstu/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/EXConstants.build/Script-46EB2E00038D80.sh (in target 'EXConstants' from project 'Pods')
+	Building workspace pethero with scheme pethero and configuration Debug
+(2 failures)
