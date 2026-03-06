@@ -3,7 +3,7 @@
     "name": "pethero",
     "slug": "pethero",
     "owner": "petmaster",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/images/logo.png",
     "scheme": "pethero-app",
@@ -124,7 +124,7 @@
           "remote-notification",
           "location"
         ],
-        "NSUserTrackingUsageDescription": "Needed to send you notifications.",
+        
         "ITSAppUsesNonExemptEncryption": false,
         "CAMERA": "PetHero needs pictures.",
         "NSCameraUsageDescription": "PetHero needs pictures.",
