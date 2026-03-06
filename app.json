@@ -17,7 +17,8 @@
       "visible": "immersive"
     },
     "androidStatusBar": {
-      "hidden": true
+      "hidden": true,
+      "backgroundColor": "#F7931A"
     },
     "web": {
       "bundler": "metro",
@@ -61,7 +62,7 @@
           "locationAlwaysAndWhenInUsePermission": "PetHero needs location to track your service route.",
           "locationAlwaysPermission": "Allow PetHero to track your route even when app is closed.",
           "isIosBackgroundLocationEnabled": true,
-          "isAndroidBackgroundLocationEnabled": true        
+          "isAndroidBackgroundLocationEnabled": true
         }
       ],
       "expo-font",
@@ -76,7 +77,7 @@
         "origin": false
       },
       "eas": {
-        "projectId": "ae0a3654-af8c-4b2e-a73e-74e977dc55ca"
+        "projectId": "4c11b53e-13ef-47f9-ae60-e83ae4fc8453"
       }
     },
     "android": {
@@ -89,24 +90,40 @@
         "android.permission.CAMERA",
         "android.permission.ACCESS_FINE_LOCATION",
         "android.permission.ACCESS_MEDIA_LOCATION",
-        "android.permission.ACCESS_COARSE_LOCATION",        
+        "android.permission.ACCESS_COARSE_LOCATION",
         "android.permission.ACCESS_BACKGROUND_LOCATION",
-        "android.permission.FOREGROUND_SERVICE"
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.READ_MEDIA_VISUAL_USER_SELECTED",
+        "android.permission.READ_MEDIA_IMAGES",
+        "android.permission.READ_MEDIA_VIDEO",
+        "android.permission.READ_MEDIA_AUDIO",
+        "android.permission.FOREGROUND_SERVICE_LOCATION"
       ],
       "intentFilters": [
         {
           "action": "VIEW",
-          "data": [{ "scheme": "pethero-app" }],
-          "category": ["BROWSABLE", "DEFAULT"]
+          "data": [
+            {
+              "scheme": "pethero-app"
+            }
+          ],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
         }
       ]
     },
     "ios": {
       "bundleIdentifier": "com.pethero.pethero",
-      "associatedDomains": ["applinks:petheroplus.com"],
-
+      "associatedDomains": [
+        "applinks:petheroplus.com"
+      ],
       "infoPlist": {
-        "UIBackgroundModes": ["remote-notification", "location"],
+        "UIBackgroundModes": [
+          "remote-notification",
+          "location"
+        ],
         "NSUserTrackingUsageDescription": "Needed to send you notifications.",
         "ITSAppUsesNonExemptEncryption": false,
         "CAMERA": "PetHero needs pictures.",
@@ -120,7 +137,7 @@
       },
       "entitlements": {
         "aps-environment": "production"
-       }
+      }
     }
   }
 }
