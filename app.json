@@ -3,7 +3,7 @@
     "name": "pethero",
     "slug": "pethero",
     "owner": "petmaster",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./assets/images/logo.png",
     "scheme": "pethero-app",
