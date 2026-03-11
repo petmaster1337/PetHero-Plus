@@ -21,7 +21,7 @@
     <key>CFBundlePackageType</key>
     <string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
     <key>CFBundleShortVersionString</key>
-    <string>1.0.3</string>
+    <string>1.0.4</string>
     <key>CFBundleSignature</key>
     <string>????</string>
     <key>CFBundleURLTypes</key>
@@ -62,7 +62,7 @@
     <key>NSLocationAlwaysUsageDescription</key>
     <string>Allow PetHero to track your route even when app is closed.</string>
     <key>NSLocationWhenInUseUsageDescription</key>
-    <string>PetHero uses your location to show nearby pet sitters, dog walkers, and pet care providers and help coordinate services near you.</string>
+    <string>PetHero accesses your location while using it.</string>
     <key>NSMicrophoneUsageDescription</key>
     <string>PetHero uses the microphone for videos.</string>
     <key>NSPhotoLibraryAddUsageDescription</key>
