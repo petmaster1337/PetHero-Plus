@@ -30,7 +30,9 @@
       [
         "expo-image-picker",
         {
-          "photoPermission": "PetHero asks this permission, so you can upload photos from your device."
+          "photosPermission": "PetHero lets you select and upload profile, pet, and listing photos from your photo library. We only access the photos you choose.",
+          "cameraPermission": "PetHero uses the camera so you can take profile, pet, and listing photos to upload to your account.",
+          "microphonePermission": "PetHero uses the microphone only when you record videos in the app."
         }
       ],
       [
@@ -44,8 +46,8 @@
       [
         "expo-media-library",
         {
-          "photosPermission": "Allow PetHero to access your photos",
-          "savePhotosPermission": "Allow PetHero to save photos.",
+          "photosPermission": "PetHero lets you select and upload profile, pet, and listing photos from your photo library. We only access the photos you choose.",
+          "savePhotosPermission": "PetHero saves photos to your library only when you choose to save an edited image.",
           "isAccessMediaLocationEnabled": true
         }
       ],
@@ -59,8 +61,9 @@
       [
         "expo-location",
         {
-          "locationAlwaysAndWhenInUsePermission": "PetHero needs location to track your service route.",
-          "locationAlwaysPermission": "Allow PetHero to track your route even when app is closed.",
+          "locationWhenInUsePermission": "PetHero uses your location while the app is open to show nearby caregivers, start service check-ins, and autofill pickup or service addresses.",
+          "locationAlwaysAndWhenInUsePermission": "PetHero uses your location during an active pet service to track the service route, support pickups and drop-offs, and share real-time trip progress even if the app is in the background.",
+          "locationAlwaysPermission": "PetHero uses your location during an active pet service to track the service route, support pickups and drop-offs, and share real-time trip progress even if the app is in the background.",
           "isIosBackgroundLocationEnabled": true,
           "isAndroidBackgroundLocationEnabled": true
         }
@@ -124,16 +127,14 @@
           "remote-notification",
           "location"
         ],
-        
         "ITSAppUsesNonExemptEncryption": false,
-        "CAMERA": "PetHero needs pictures.",
-        "NSCameraUsageDescription": "PetHero needs pictures.",
-        "NSPhotoLibraryUsageDescription": "PetHero access your photo library.",
-        "NSPhotoLibraryAddUsageDescription": "PetHero saves images to your photo library.",
-        "NSLocationWhenInUseUsageDescription": "PetHero accesses your location while using it.",
-        "NSMicrophoneUsageDescription": "PetHero uses the microphone for videos.",
-        "NSLocationAlwaysAndWhenInUseUsageDescription": "PetHero tracks your route during services.",
-        "NSLocationAlwaysUsageDescription": "PetHero tracks your route even when closed."
+        "NSCameraUsageDescription": "PetHero uses the camera so you can take profile, pet, and listing photos to upload to your account.",
+        "NSPhotoLibraryUsageDescription": "PetHero lets you select and upload profile, pet, and listing photos from your photo library. We only access the photos you choose.",
+        "NSPhotoLibraryAddUsageDescription": "PetHero saves photos to your library only when you choose to save an edited image.",
+        "NSLocationWhenInUseUsageDescription": "PetHero uses your location while the app is open to show nearby caregivers, start service check-ins, and autofill pickup or service addresses.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "PetHero uses your location during an active pet service to track the service route, support pickups and drop-offs, and share real-time trip progress even if the app is in the background.",
+        "NSLocationAlwaysUsageDescription": "PetHero uses your location during an active pet service to track the service route, support pickups and drop-offs, and share real-time trip progress even if the app is in the background.",
+        "NSMicrophoneUsageDescription": "PetHero uses the microphone only when you record videos in the app."
       },
       "entitlements": {
         "aps-environment": "production"
