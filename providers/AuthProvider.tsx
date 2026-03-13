@@ -18,7 +18,7 @@ LogBox.ignoreAllLogs(true);
 
 type Auth = {
   session: SessionProps;
-  location: { latitude: number, longitude: number };
+  //location: { latitude: number, longitude: number };
   neighbors: any;
   notification: any;
   attention: AttentionProps | undefined;
@@ -42,7 +42,7 @@ const AuthContext = createContext<Auth | undefined>(undefined);
 
 export default function AuthProvider({ children }: Readonly<{ children: React.ReactNode }>) {
   const { session, token, setToken, user, setUser, pets, setPets, updateSession } = useSession();
-  const location = useLocation();
+  // const location = useLocation();
   const { neighbors, messages, setMessages, services, setServices, priceTypes, hero, setHero, updateMessages, updateServices, updateSpecificContract, workingOn } = usePolling(user, token, pets);
   const isAuthenticated = (typeof session?.user !== 'undefined' ) || false;
   const { expoPushToken, notification, sendPushNotification, registerForPushNotificationsAsync, showNotification } = useNotification();
@@ -121,10 +121,10 @@ export default function AuthProvider({ children }: Readonly<{ children: React.Re
     setAttention(attention)
   }, [attention])
 
-  useEffect(() => {
-    if (user)
-      updateUser(user._id, {...user, lat: location.latitude, long: location.longitude});
-  }, [location])
+//   useEffect(() => {
+//     if (user)
+//       updateUser(user._id, {...user, lat: location.latitude, long: location.longitude});
+//   }, [location])
 
   useEffect(() => {
     showNotification(notification);
@@ -151,7 +151,7 @@ if (incomingCall && user) {
   }
 
   return (
-    <AuthContext.Provider value={{session,  priceTypes, token,  expoPushToken, isAuthenticated, isConnected,  methods, user, hero, pets, attention, location, neighbors, messages, services, notification, incomingCall, workingOn, tracks}}>
+    <AuthContext.Provider value={{session,  priceTypes, token,  expoPushToken, isAuthenticated, isConnected,  methods, user, hero, pets, attention, neighbors, messages, services, notification, incomingCall, workingOn, tracks}}>
       {children}
     </AuthContext.Provider>
   );

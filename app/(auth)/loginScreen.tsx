@@ -48,8 +48,6 @@ export default function LoginScreen() {
         methods.setUser(loginAnswer.user);
         methods.setToken(loginAnswer.token);
         methods.setHero(thisHero);
-
-        await updateLocation();
       }
 
       router.replace('/(tabs)');
@@ -61,20 +59,7 @@ export default function LoginScreen() {
   };
 
 
-  const updateLocation = async () => {
-    return new Promise(resolve => {
-      try {
-        methods.registerForPushNotificationsAsync();
-        if (expoPushToken !== user?.notification) {
-          methods.updateUser(user._id, { ...user, notification: expoPushToken });
-        }
-        resolve(true);
-      } catch (error) {
-        console.log('Error', error);
-        resolve(false);
-      }
-    });
-  };
+
 
   const handleRegister = () => {
     router.replace('/(auth)/registerScreen');

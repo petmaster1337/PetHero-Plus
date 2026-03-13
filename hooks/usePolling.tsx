@@ -18,8 +18,10 @@ export const usePolling = (user: any, token: string, pets: any) => {
     setPoll(true);
     try {
       if (neighbors.length === 0) {
-        const neigh = await getNearestHeroes(user, 25, 50);
-        setNeighbors(neigh);
+        if (user.lat != 0.00) {
+            const neigh = await getNearestHeroes(user, 25, 50);
+            setNeighbors(neigh);
+        }
       }
       await manageServicesAndMessages();
       setPriceTypes(await getPriceTypes(token));

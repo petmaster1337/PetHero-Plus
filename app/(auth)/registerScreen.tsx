@@ -80,19 +80,23 @@ const RegisterScreen = () => {
         router.replace("/(auth)/loginScreen");
     }
 
-    const getCurrentLocation = async () =>{
-        let { status } = await Location.requestForegroundPermissionsAsync();
-        let newLocation = await Location.getCurrentPositionAsync({});
-        setLat(newLocation.coords.latitude)
-        setLong(newLocation.coords.longitude)
+    // const getCurrentLocation = async () =>{
+    //     let { status } = await Location.requestForegroundPermissionsAsync();
+    //     let newLocation = await Location.getCurrentPositionAsync({});
+    //     setLat(newLocation.coords.latitude)
+    //     setLong(newLocation.coords.longitude)
+    // }
+    
+    const setAnyLocation = () => {
+        setLat(0.00);
+        setLong(0.00);
     }
     useEffect (() => {
         setUid(generateUid());
     }, []);
 
     useEffect(() => {
-        (async()=> {await getCurrentLocation();}
-    )()
+        setAnyLocation();
     }, [image])
 
     const emailCheck = async () => {

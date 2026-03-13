@@ -157,25 +157,6 @@ const TabsHome = () => {
                 </Animated.View>
                 <Animated.View style={[animBodyMain, { backgroundColor: Colors.primary, height: altitudo(22)}]}>
                 </Animated.View>
-{/* TESTS
-                <Animated.View style={[{}, styles.cont1, animBodyMain]}>
-                    <TouchableOpacity
-                        onPress={openTest}
-                    >
-                    <Text style={{ fontSize: altitudo(1.5), fontFamily: 'mon' }} adjustsFontSizeToFit numberOfLines={1}>TEST</Text>
-                    </TouchableOpacity>
-                </Animated.View>
-                
-                <Animated.View style={[{}, styles.cont1, animBodyMain]}>
-                    <TouchableOpacity
-                        onPress={secondTest}
-                    >
-                    <Text style={{ fontSize: altitudo(1.5), fontFamily: 'mon' }} adjustsFontSizeToFit numberOfLines={1}>SECOND TEST</Text>
-                    </TouchableOpacity>
-                </Animated.View>
- END TESTS */}
-                {/* CONTENT */}
-
             </Animated.ScrollView>
         </SafeAreaView>
     )

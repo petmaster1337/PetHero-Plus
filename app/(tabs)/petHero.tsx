@@ -27,7 +27,7 @@ let globalSize = 0;
 
 const PetHero = () => {
     const router = useRouter();
-    let { pets, neighbors } = useAuth();
+    let { pets, neighbors, methods, expoPushToken, user } = useAuth();
 
     const petArray = [...pets];
     globalSize = petArray.length;
@@ -47,6 +47,27 @@ const PetHero = () => {
     const [ periodicity, setPeriodicity ] = useState<PayType>("half hour");
     const today = new Date();
     today.setHours(0, 0, 0, 0);
+
+
+    useEffect(() => {
+        updateLocation();
+    }, []);
+
+    const updateLocation = async () => {
+        return new Promise(resolve => {
+            try {
+            methods.registerForPushNotificationsAsync();
+            if (expoPushToken !== user?.notification) {
+                methods.updateUser(user._id, { ...user, notification: expoPushToken });
+            }
+            resolve(true);
+            } catch (error) {
+            console.log('Error', error);
+            resolve(false);
+            }
+        });
+    };
+    
     const nextButton = (next: number) => {
         return (
             <TouchableOpacity
@@ -58,9 +79,7 @@ const PetHero = () => {
                         <FontAwesome name="check" size={altitudo(3.5)} color={'white'} style={{margin: 10}}/>
                     </View>
             </TouchableOpacity>
-
         )
-
     }
 
     function onPetSelection(pet: any) {

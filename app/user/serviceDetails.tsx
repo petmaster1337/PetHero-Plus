@@ -14,7 +14,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const ServiceMapAndPay = () => {
   const { contract, hero, pet } = useLocalSearchParams();
-  const { user, token, tracks, location, services } = useAuth();
+  const { user, token, tracks, services } = useAuth();
   const [ path, setPath ] = useState<any[]>([]);
   const [ service, setService ] = useState<any>([]);
   const [ amIHero, setAmIHero ] = useState<boolean>(false); 

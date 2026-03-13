@@ -4,7 +4,7 @@ import { WEBSOCKET_URL } from '@/config';
 import { getUserById } from '@/services/user.service';
 import * as FileSystem from 'expo-file-system/legacy';
 import { getMessages, getServices, getTrackByContract, recordPhoto, storeMessage } from '@/services/event.service';
-import * as MediaLibrary from 'expo-media-library';
+//  import * as MediaLibrary from 'expo-media-library';
 import * as ImageManipulator from 'expo-image-manipulator';
 import * as ImagePicker from 'expo-image-picker';
 
@@ -146,9 +146,9 @@ export const useWebSocket = (
                     break;
                 }
 
-                case 'download-response':
-                    downloadVideo(data.data.videoUrl, data.data.senderId);
-                    break;
+                // case 'download-response':
+                //     downloadVideo(data.data.videoUrl, data.data.senderId);
+                //     break;
 
                 default:
                     console.warn('Unknown event type:', data.type);
@@ -171,7 +171,6 @@ export const useWebSocket = (
 
     // ---------------- Helpers ----------------
     const rebootMessages = async () => {
-            console.log('WS: 177, REBOOT MSGS')
         try {
             const messageSender = await getMessages(token, 'sender', user);
             const messageReceiver = await getMessages(token, 'receiver', user);
@@ -182,7 +181,6 @@ export const useWebSocket = (
     };
 
     const rebootTracks = async (contractId: string) => {
-        console.log('WS 182 REBOOT TRACKS', 'USER:', user?._id)
         try {
             let ts = await getTrackByContract({_id: contractId}, token);
             let newTrack = {...tracks}
@@ -215,44 +213,44 @@ export const useWebSocket = (
         }
     };
 
-    const ensureMediaLibraryPermission = async () => {
-        try {
-            const { status, canAskAgain } = await MediaLibrary.requestPermissionsAsync();
-            if (status === 'granted') return true;
-            if (status === 'denied' && canAskAgain) {
-                const { status: newStatus } = await MediaLibrary.requestPermissionsAsync();
-                return newStatus === 'granted';
-            }
-            return false;
-        } catch (e) {
-            console.warn('ensureMediaLibraryPermission error', e);
-            return false;
-        }
-    };
+    // const ensureMediaLibraryPermission = async () => {
+    //     try {
+    //         const { status, canAskAgain } = await MediaLibrary.requestPermissionsAsync();
+    //         if (status === 'granted') return true;
+    //         if (status === 'denied' && canAskAgain) {
+    //             const { status: newStatus } = await MediaLibrary.requestPermissionsAsync();
+    //             return newStatus === 'granted';
+    //         }
+    //         return false;
+    //     } catch (e) {
+    //         console.warn('ensureMediaLibraryPermission error', e);
+    //         return false;
+    //     }
+    // };
 
-    const downloadVideo = async (fileUrl: string, senderId: string) => {
-        if (!fileUrl) return;
-        try {
-            const sender = senderId ? await getUserById(senderId) : null;
-            const parts = fileUrl.split('/');
-            const fileName = parts.pop() || `download_${Date.now()}`;
-            const targetDir = `${FileSystem.documentDirectory}Download/`;
-            const dirInfo = await FileSystem.getInfoAsync(targetDir);
-            if (!dirInfo.exists) {
-                await FileSystem.makeDirectoryAsync(targetDir, { intermediates: true });
-            }
-            const fileUri = `${targetDir}${fileName}`;
-            const downloadResumable = FileSystem.createDownloadResumable(fileUrl, fileUri, {});
-            const res = await downloadResumable.downloadAsync();
-            if (res?.uri) {
-                setIncomingCall(sender);
-                setFilename(res.uri);
-                sendEvent('exclude-download', { fileUrl });
-            }
-        } catch (e) {
-            console.warn('downloadVideo error', e);
-        }
-    };
+    // const downloadVideo = async (fileUrl: string, senderId: string) => {
+    //     if (!fileUrl) return;
+    //     try {
+    //         const sender = senderId ? await getUserById(senderId) : null;
+    //         const parts = fileUrl.split('/');
+    //         const fileName = parts.pop() || `download_${Date.now()}`;
+    //         const targetDir = `${FileSystem.documentDirectory}Download/`;
+    //         const dirInfo = await FileSystem.getInfoAsync(targetDir);
+    //         if (!dirInfo.exists) {
+    //             await FileSystem.makeDirectoryAsync(targetDir, { intermediates: true });
+    //         }
+    //         const fileUri = `${targetDir}${fileName}`;
+    //         const downloadResumable = FileSystem.createDownloadResumable(fileUrl, fileUri, {});
+    //         const res = await downloadResumable.downloadAsync();
+    //         if (res?.uri) {
+    //             setIncomingCall(sender);
+    //             setFilename(res.uri);
+    //             sendEvent('exclude-download', { fileUrl });
+    //         }
+    //     } catch (e) {
+    //         console.warn('downloadVideo error', e);
+    //     }
+    // };
 
     const sendInstantMessage = (receiverId: string, message: any) => {
         sendEvent('message', { ...message, receiverId });

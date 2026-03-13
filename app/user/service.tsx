@@ -18,6 +18,7 @@ import MapView, { Marker, Polyline, PROVIDER_DEFAULT, PROVIDER_GOOGLE } from 're
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { getUserByHeroId } from '@/services/user.service';
 import AddressLink from '@/components/AddressLink';
+import { useLocation } from '@/hooks/useLocation';
 
 const ServiceDetail = () => {
   const { service, hero, contractor } = useLocalSearchParams();
@@ -28,7 +29,7 @@ const ServiceDetail = () => {
   const [ blackScreen, setBlackScreen ] = useState<boolean>(false);
   const [ alertVisible, setAlertVisible] = useState<boolean>(false);
   const [ messageSubject, setMessageSubject ] = useState<string>('');
-  const { user, token, services, messages, location, methods,  workingOn, tracks } = useAuth();
+  const { user, token, services, messages, methods,  workingOn, tracks } = useAuth();
   const [ listMessages, setListMessages ] = useState<any[]>([]);
   const [ button, setButton ] = useState({text: '', click: []});
   const [ buttonVisible, setButtonVisible] = useState<boolean>(false);
@@ -43,6 +44,7 @@ const ServiceDetail = () => {
   const [ startingDate, setStartingDate] = useState<any>();
   const [ endingDate, setEndinggDate] = useState<any>();
   const [ poll, setPoll ] = useState<boolean>(true);
+  const [ location, setLocation] = useState<{latitude: number, longitude: number}>();
   // const [ address, setAddress] = useState<any>();
   
   const router = useRouter();
@@ -86,6 +88,11 @@ const ServiceDetail = () => {
     if (Platform.OS === 'android') {
       setMapProvider(PROVIDER_GOOGLE);
     }
+    const n = setInterval(() => {
+        const newLocation = useLocation()
+        setLocation(newLocation);
+    }, 10000);
+    () => clearInterval(n);
   }, []);
 
   useEffect(() => {
