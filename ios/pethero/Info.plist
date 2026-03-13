@@ -4,8 +4,6 @@
   <dict>
     <key>CADisableMinimumFrameDurationOnPhone</key>
     <true/>
-    <key>CAMERA</key>
-    <string>PetHero needs pictures.</string>
     <key>CFBundleDevelopmentRegion</key>
     <string>$(DEVELOPMENT_LANGUAGE)</string>
     <key>CFBundleDisplayName</key>
@@ -56,19 +54,19 @@
       <true/>
     </dict>
     <key>NSCameraUsageDescription</key>
-    <string>PetHero needs pictures.</string>
+    <string>PetHero uses the camera so you can take profile, pet, and listing photos to upload to your account.</string>
     <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-    <string>PetHero needs location to track your service route.</string>
+    <string>PetHero uses your location during an active pet service to track the service route, support pickups and drop-offs, and share real-time trip progress even if the app is in the background.</string>
     <key>NSLocationAlwaysUsageDescription</key>
-    <string>Allow PetHero to track your route even when app is closed.</string>
+    <string>PetHero uses your location during an active pet service to track the service route, support pickups and drop-offs, and share real-time trip progress even if the app is in the background.</string>
     <key>NSLocationWhenInUseUsageDescription</key>
-    <string>PetHero accesses your location while using it.</string>
+    <string>PetHero uses your location while the app is open to show nearby caregivers, start service check-ins, and autofill pickup or service addresses.</string>
     <key>NSMicrophoneUsageDescription</key>
-    <string>PetHero uses the microphone for videos.</string>
+    <string>PetHero uses the microphone only when you record videos in the app.</string>
     <key>NSPhotoLibraryAddUsageDescription</key>
-    <string>Allow PetHero to save photos.</string>
+    <string>PetHero saves photos to your library only when you choose to save an edited image.</string>
     <key>NSPhotoLibraryUsageDescription</key>
-    <string>Allow PetHero to access your photos</string>
+    <string>PetHero lets you select and upload profile, pet, and listing photos from your photo library. We only access the photos you choose.</string>
     <key>NSUserActivityTypes</key>
     <array>
       <string>$(PRODUCT_BUNDLE_IDENTIFIER).expo.index_route</string>
