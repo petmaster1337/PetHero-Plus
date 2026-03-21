@@ -44,29 +44,10 @@ const PetHero = () => {
     const [ dateTime, setDateTime ] = useState<Date>(initialTime);
     const [ mode, setMode ] = useState<"date" | "time">('date');
     const [ show, setShow ] = useState(false);
-    const [ periodicity, setPeriodicity ] = useState<PayType>("half hour");
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
 
-    useEffect(() => {
-        updateLocation();
-    }, []);
-
-    const updateLocation = async () => {
-        return new Promise(resolve => {
-            try {
-            methods.registerForPushNotificationsAsync();
-            if (expoPushToken !== user?.notification) {
-                methods.updateUser(user._id, { ...user, notification: expoPushToken });
-            }
-            resolve(true);
-            } catch (error) {
-            console.log('Error', error);
-            resolve(false);
-            }
-        });
-    };
     
     const nextButton = (next: number) => {
         return (
@@ -204,7 +185,6 @@ const PetHero = () => {
     }
 
     function onServiceSelection(service: DataPropsIndex) {
-        setPeriodicity(Data[service].payCycle)
         setServiceSelected(service);
     };
     

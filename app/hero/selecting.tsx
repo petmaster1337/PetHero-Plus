@@ -62,6 +62,7 @@ const HeroSelecting = () => {
 
     useEffect(() => {
         populateHeroes();
+        methods.registerForPushNotificationsAsync(); // Enable notification
     }, []);
 
     const buyIt = async (item: any, petType: string, serviceSelected: string) => {

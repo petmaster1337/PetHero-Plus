@@ -21,13 +21,14 @@ const CheckoutScreen = () => {
   const [ cardInfo, setCardInfo ] = useState(null);
   const [ platformAvailable, setPlatformAvailable] = useState<boolean>(false);
   const [ productList, setProductList ] = useState<any>(null);
-  const { user } = useAuth();
+  const { user, methods } = useAuth();
   const router = useRouter();
   const { confirmPayment } = useStripe();
   const { list, total } = useLocalSearchParams();
   const uidString = `${Math.floor(Math.random() * Math.pow(32, 6)).toString(32)}j${Math.floor(Math.random() * Math.pow(32, 6)).toString(32)}l${Math.floor(Math.random() * Math.pow(32, 6)).toString(32)}s`;
   useEffect(() => {
     setProductList(JSON.parse(String(list)));
+    methods.registerForPushNotificationsAsync();
  }, []);
 
   const handleCardChange = (cardDetails: any) => {

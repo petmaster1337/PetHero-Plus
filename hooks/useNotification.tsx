@@ -23,30 +23,29 @@ export function useNotification() {
   const responseListener = useRef<Notifications.EventSubscription | null>(null);
 
   useEffect(() => {
-    async function getToken() {
-      await registerForPushNotificationsAsync();
+    if (notification) {
+        notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
+        return setNotification(notification);
+        });
+
+        responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
+        console.log('User interacted with notification:', response);
+        });
+
+        return () => {
+        if (notificationListener.current) {
+            notificationListener.current.remove();
+            // Notifications.removeNotificationSubscription(notificationListener.current);
+        }
+        if (responseListener.current) {
+            responseListener.current.remove();        
+            // Notifications.removeNotificationSubscription(responseListener.current);
+        }
+        };
     }
-    getToken();
-
-    notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
-      return setNotification(notification);
-    });
-
-    responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
-      console.log('User interacted with notification:', response);
-    });
-
-    return () => {
-      if (notificationListener.current) {
-        notificationListener.current.remove();
-        // Notifications.removeNotificationSubscription(notificationListener.current);
-      }
-      if (responseListener.current) {
-        responseListener.current.remove();        
-        // Notifications.removeNotificationSubscription(responseListener.current);
-      }
-    };
   }, []);
+
+    
   async function registerForPushNotificationsAsync() {
     let token = '';
 
@@ -82,10 +81,10 @@ export function useNotification() {
     setExpoPushToken(token);
     return token;
   }
-  return { expoPushToken, notification, registerForPushNotificationsAsync, sendPushNotification, showNotification };
+  return { expoPushToken, notification, sendPushNotification, registerForPushNotificationsAsync, showNotification };
 }
 
-function showNotification(msg: { title: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; body: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }) {
+async function showNotification(msg: { title: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; body: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }) {
     return (
         <View style={{position: 'absolute', width: '100%', height: '10%', top: 0, left: 0}}>
             <Text>{msg?.title}</Text>

@@ -24,6 +24,7 @@ const HeroForm = () => {
   const router = useRouter();
 
   const onSubmit = async (data: any) => {
+    methods.registerForPushNotificationsAsync();//Enable Notification 
     const priceData = [{
       cats: {
         hotel: Number(data.cats_hotel) || 0,

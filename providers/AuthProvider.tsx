@@ -45,7 +45,7 @@ export default function AuthProvider({ children }: Readonly<{ children: React.Re
   // const location = useLocation();
   const { neighbors, messages, setMessages, services, setServices, priceTypes, hero, setHero, updateMessages, updateServices, updateSpecificContract, workingOn } = usePolling(user, token, pets);
   const isAuthenticated = (typeof session?.user !== 'undefined' ) || false;
-  const { expoPushToken, notification, sendPushNotification, registerForPushNotificationsAsync, showNotification } = useNotification();
+  const { expoPushToken, notification, registerForPushNotificationsAsync, sendPushNotification, showNotification } = useNotification();
   const { attention, setAttention, getCurrentAttention, addCurrentAttention, deleteAttention, setImune } = useAttention(token, user);
   const {       
     isConnected, 
@@ -95,11 +95,11 @@ export default function AuthProvider({ children }: Readonly<{ children: React.Re
     sendPhoto,
     setImune,
     setGoBack,
-    registerForPushNotificationsAsync,
     updateMessages,
     updateServices,
     updateUser,
     updateSpecificContract,
+    registerForPushNotificationsAsync
     }
 
   useEffect(() => {
@@ -121,13 +121,26 @@ export default function AuthProvider({ children }: Readonly<{ children: React.Re
     setAttention(attention)
   }, [attention])
 
-//   useEffect(() => {
-//     if (user)
-//       updateUser(user._id, {...user, lat: location.latitude, long: location.longitude});
-//   }, [location])
+
+  
+    const updateNotification = () => {
+        return new Promise(resolve => {
+            try {
+            if (expoPushToken !== user?.notification) {
+                methods.updateUser(user._id, { ...user, notification: expoPushToken });
+            }
+            resolve(true);
+            } catch (error) {
+            console.log('Error', error);
+            resolve(false);
+            }
+        });
+    };
+
 
   useEffect(() => {
     showNotification(notification);
+    updateNotification();
   }, [notification]);
 
 if (incomingCall && user) {
