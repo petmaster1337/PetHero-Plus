@@ -45,7 +45,7 @@ const CheckoutScreen = () => {
   
     useEffect(() => {
       const checkPayment = async () => {
-        const available = await isPlatformPaySupported();
+        const available = Platform.OS === 'ios' ? true: await isPlatformPaySupported();
         setPlatformAvailable(available);
       };
       checkPayment();
