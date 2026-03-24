@@ -87,7 +87,7 @@ const CheckoutScreen = () => {
         finalizePayment(error, paymentIntent);
       } else {
         const { error, paymentIntent } = await confirmPlatformPayPayment(client_secret, {
-        googlePay: {amount: 100 * amount, testEnv: false, merchantCountryCode: 'US', currencyCode: 'USD' },
+        googlePay: {amount: Math.round(100 * amount), testEnv: false, merchantCountryCode: 'US', currencyCode: 'USD' },
         applePay: {cartItems: [{ paymentType: "Immediate" as any, label: `Pet Hero Products`, amount: amount.toFixed(2) }], merchantCountryCode: 'US', currencyCode: 'USD' },
       });
               
