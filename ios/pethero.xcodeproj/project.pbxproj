@@ -8,30 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		26F3E1152322201FE281F911 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A4E5B4A1F2A65C522D71021E /* PrivacyInfo.xcprivacy */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		490B902E9B036871A6BAC126 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BC2E57FA9923EFEB29398C /* ExpoModulesProvider.swift */; };
-		637C7CED07E24A029674D91D /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1DF66B3F2041E486495234 /* noop-file.swift */; };
-		B977EEB832105F8BB78E82A9 /* libPods-pethero.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FED1DCDD637C1FEC2580E26A /* libPods-pethero.a */; };
+		448FA377FE1D4FC9BD806088 /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0817F3EF097D4BE19DF07F2B /* noop-file.swift */; };
+		ABB1AEDE296D7ABC93D720C3 /* libPods-pethero.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6D7DDC1F40A29FD5FCB91F /* libPods-pethero.a */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
-		C20D337A10B9E1A3C0164EAC /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = E99C32140D0DB6D90BA9004E /* PrivacyInfo.xcprivacy */; };
+		CFEED390CA301767197CA5DB /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0CB0A9DFC27DA923A0D706 /* ExpoModulesProvider.swift */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0817F3EF097D4BE19DF07F2B /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "pethero/noop-file.swift"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* pethero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pethero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = pethero/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = pethero/Info.plist; sourceTree = "<group>"; };
-		25BC2E57FA9923EFEB29398C /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-pethero/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		696DFBA77DEB754ED0DB40A3 /* Pods-pethero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pethero.release.xcconfig"; path = "Target Support Files/Pods-pethero/Pods-pethero.release.xcconfig"; sourceTree = "<group>"; };
-		7F42AF11828D9A7483866E80 /* Pods-pethero.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pethero.debug.xcconfig"; path = "Target Support Files/Pods-pethero/Pods-pethero.debug.xcconfig"; sourceTree = "<group>"; };
-		9A1DF66B3F2041E486495234 /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "pethero/noop-file.swift"; sourceTree = "<group>"; };
+		5F6D7DDC1F40A29FD5FCB91F /* libPods-pethero.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pethero.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		91E8519A896A3C3FB64E9F65 /* Pods-pethero.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pethero.debug.xcconfig"; path = "Target Support Files/Pods-pethero/Pods-pethero.debug.xcconfig"; sourceTree = "<group>"; };
+		A4E5B4A1F2A65C522D71021E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = pethero/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = pethero/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		E99C32140D0DB6D90BA9004E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = pethero/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		CA0CB0A9DFC27DA923A0D706 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-pethero/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		D8E13B6689F9E5C097FA5E2C /* Pods-pethero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pethero.release.xcconfig"; path = "Target Support Files/Pods-pethero/Pods-pethero.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = pethero/AppDelegate.swift; sourceTree = "<group>"; };
 		F11748442D0722820044C1D9 /* pethero-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "pethero-Bridging-Header.h"; path = "pethero/pethero-Bridging-Header.h"; sourceTree = "<group>"; };
-		FED1DCDD637C1FEC2580E26A /* libPods-pethero.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pethero.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,23 +39,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B977EEB832105F8BB78E82A9 /* libPods-pethero.a in Frameworks */,
+				ABB1AEDE296D7ABC93D720C3 /* libPods-pethero.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		09E4EF147ED65B30BBFCD6C7 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7F42AF11828D9A7483866E80 /* Pods-pethero.debug.xcconfig */,
-				696DFBA77DEB754ED0DB40A3 /* Pods-pethero.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		13B07FAE1A68108700A75B9A /* pethero */ = {
 			isa = PBXGroup;
 			children = (
@@ -65,8 +55,8 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				9A1DF66B3F2041E486495234 /* noop-file.swift */,
-				E99C32140D0DB6D90BA9004E /* PrivacyInfo.xcprivacy */,
+				0817F3EF097D4BE19DF07F2B /* noop-file.swift */,
+				A4E5B4A1F2A65C522D71021E /* PrivacyInfo.xcprivacy */,
 			);
 			name = pethero;
 			sourceTree = "<group>";
@@ -75,17 +65,9 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				FED1DCDD637C1FEC2580E26A /* libPods-pethero.a */,
+				5F6D7DDC1F40A29FD5FCB91F /* libPods-pethero.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		40873CC39F96F59C4647E262 /* ExpoModulesProviders */ = {
-			isa = PBXGroup;
-			children = (
-				8B1AD1F6298BAA2D2E74632C /* pethero */,
-			);
-			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -102,8 +84,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				09E4EF147ED65B30BBFCD6C7 /* Pods */,
-				40873CC39F96F59C4647E262 /* ExpoModulesProviders */,
+				F5C632E821CB6FC555C3FA57 /* Pods */,
+				BA1F2E9C17B12217E5393DDE /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -118,12 +100,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8B1AD1F6298BAA2D2E74632C /* pethero */ = {
+		BA1F2E9C17B12217E5393DDE /* ExpoModulesProviders */ = {
 			isa = PBXGroup;
 			children = (
-				25BC2E57FA9923EFEB29398C /* ExpoModulesProvider.swift */,
+				ED4760F64D8BBBA41CE6DD8F /* pethero */,
 			);
-			name = pethero;
+			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
 		BB2F792B24A3F905000567C9 /* Supporting */ = {
@@ -135,6 +117,24 @@
 			path = pethero/Supporting;
 			sourceTree = "<group>";
 		};
+		ED4760F64D8BBBA41CE6DD8F /* pethero */ = {
+			isa = PBXGroup;
+			children = (
+				CA0CB0A9DFC27DA923A0D706 /* ExpoModulesProvider.swift */,
+			);
+			name = pethero;
+			sourceTree = "<group>";
+		};
+		F5C632E821CB6FC555C3FA57 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				91E8519A896A3C3FB64E9F65 /* Pods-pethero.debug.xcconfig */,
+				D8E13B6689F9E5C097FA5E2C /* Pods-pethero.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,13 +143,13 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "pethero" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				516AC17B6AE3476A00E389E2 /* [Expo] Configure project */,
+				CF0EA6EF0A93E1B27088E50C /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				8BE4C3BB9531437444DBEE8E /* [CP] Embed Pods Frameworks */,
+				F86BF42DAD63F5E15F22F41E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -199,7 +199,7 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				C20D337A10B9E1A3C0164EAC /* PrivacyInfo.xcprivacy in Resources */,
+				26F3E1152322201FE281F911 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,30 +244,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
-		};
-		516AC17B6AE3476A00E389E2 /* [Expo] Configure project */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/.xcode.env",
-				"$(SRCROOT)/.xcode.env.local",
-				"$(SRCROOT)/pethero/pethero.entitlements",
-				"$(SRCROOT)/Pods/Target Support Files/Pods-pethero/expo-configure-project.sh",
-			);
-			name = "[Expo] Configure project";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(SRCROOT)/Pods/Target Support Files/Pods-pethero/ExpoModulesProvider.swift",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-pethero/expo-configure-project.sh\"\n";
 		};
 		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -341,7 +317,31 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-pethero/Pods-pethero-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8BE4C3BB9531437444DBEE8E /* [CP] Embed Pods Frameworks */ = {
+		CF0EA6EF0A93E1B27088E50C /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.xcode.env",
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/pethero/pethero.entitlements",
+				"$(SRCROOT)/Pods/Target Support Files/Pods-pethero/expo-configure-project.sh",
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/Pods/Target Support Files/Pods-pethero/ExpoModulesProvider.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-pethero/expo-configure-project.sh\"\n";
+		};
+		F86BF42DAD63F5E15F22F41E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -371,8 +371,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				637C7CED07E24A029674D91D /* noop-file.swift in Sources */,
-				490B902E9B036871A6BAC126 /* ExpoModulesProvider.swift in Sources */,
+				448FA377FE1D4FC9BD806088 /* noop-file.swift in Sources */,
+				CFEED390CA301767197CA5DB /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,7 +381,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F42AF11828D9A7483866E80 /* Pods-pethero.debug.xcconfig */;
+			baseConfigurationReference = 91E8519A896A3C3FB64E9F65 /* Pods-pethero.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -417,7 +417,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 696DFBA77DEB754ED0DB40A3 /* Pods-pethero.release.xcconfig */;
+			baseConfigurationReference = D8E13B6689F9E5C097FA5E2C /* Pods-pethero.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
