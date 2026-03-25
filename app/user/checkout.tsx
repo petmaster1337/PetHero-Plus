@@ -46,7 +46,7 @@ const CheckoutScreen = () => {
   
     useEffect(() => {
       const checkPayment = async () => {
-        const available = Platform.OS === 'ios' ? true: await isPlatformPaySupported();
+        const available = await isPlatformPaySupported();
         setPlatformAvailable(available);
       };
       checkPayment();
@@ -54,6 +54,7 @@ const CheckoutScreen = () => {
 
     const finalizePayment = (error: StripeError<ConfirmPaymentError> | StripeError<PlatformPayError> | undefined, paymentIntent: Result | undefined) => {
       if (error) {
+        console.log("FULL ERROR:", JSON.stringify(error, null, 2));
         Alert.alert("Payment Failed", error.message);
       } else {
         Alert.alert("Payment Successful", `Status: ${paymentIntent?.status}`);
@@ -80,20 +81,25 @@ const CheckoutScreen = () => {
         }),
       });
       const { client_secret, filed } = await response.json();      
-
       if (type === "Card") {
         const { error, paymentIntent } = await confirmPayment(client_secret, {
           paymentMethodType: "Card",
         });
         finalizePayment(error, paymentIntent);
       } else {
-        const { error, paymentIntent } = await confirmPlatformPayPayment(client_secret, {
-        googlePay: {amount: Math.round(100 * amount), testEnv: false, merchantCountryCode: 'US', currencyCode: 'USD' },
-        applePay: {cartItems: [{ paymentType: "Immediate" as PlatformPay.PaymentType.Immediate, label: `Pet Hero Products`, amount: amount.toFixed(2) }], merchantCountryCode: 'US', currencyCode: 'USD' },
-      });
-              
-      finalizePayment(error, paymentIntent);
-    }
+        if (Platform.OS === 'ios')  {
+            const { error, paymentIntent } = await confirmPlatformPayPayment(client_secret, {
+                applePay: {cartItems: [{ paymentType: "Immediate" as PlatformPay.PaymentType.Immediate, label: `Pet Hero Products`, amount: amount.toFixed(2) }], merchantCountryCode: 'US', currencyCode: 'USD' },
+            });
+            finalizePayment(error, paymentIntent);
+
+        } else {
+            const { error, paymentIntent } = await confirmPlatformPayPayment(client_secret, {
+                googlePay: {amount: Math.round(100 * amount), testEnv: false, merchantCountryCode: 'US', currencyCode: 'USD' },
+            });
+            finalizePayment(error, paymentIntent);
+            }
+        }
 
     } catch (error: any) {
       Alert.alert("Payment Error", `${error?.message}` || JSON.stringify(error));
