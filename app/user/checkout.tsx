@@ -16,6 +16,7 @@ import { API_ROOT_URL, STRIPE_KEY } from "@/config";
 import { useRouter, useLocalSearchParams } from "expo-router";
 import { Colors, TRANSACTION_FEE } from "@/constants/Constants";
 import { Result } from "@stripe/stripe-react-native/lib/typescript/src/types/PaymentIntent";
+import { PaymentType } from "@stripe/stripe-react-native/lib/typescript/src/types/PlatformPay";
 
 const CheckoutScreen = () => {
   const [ cardInfo, setCardInfo ] = useState(null);
@@ -88,7 +89,7 @@ const CheckoutScreen = () => {
       } else {
         const { error, paymentIntent } = await confirmPlatformPayPayment(client_secret, {
         googlePay: {amount: Math.round(100 * amount), testEnv: false, merchantCountryCode: 'US', currencyCode: 'USD' },
-        applePay: {cartItems: [{ paymentType: "Immediate" as any, label: `Pet Hero Products`, amount: amount.toFixed(2) }], merchantCountryCode: 'US', currencyCode: 'USD' },
+        applePay: {cartItems: [{ paymentType: PaymentType.Immediate, label: `Pet Hero Products`, amount: amount.toFixed(2) }], merchantCountryCode: 'US', currencyCode: 'USD' },
       });
               
       finalizePayment(error, paymentIntent);
