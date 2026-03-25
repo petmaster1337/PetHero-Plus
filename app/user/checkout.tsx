@@ -95,7 +95,7 @@ const CheckoutScreen = () => {
             finalizePayment(error, paymentIntent);
 
         } else {
-            console.log('CURRENT AMOUNT', Math.round(100 * Number(amount)))
+            console.log('CURRENT AMOUNT', Math.round(100 * Number(amount)), ' ')
             const { error, paymentIntent } = await confirmPlatformPayPayment(client_secret, {
                 googlePay: {amount: Math.round(100 * Number(amount)), testEnv: false, merchantCountryCode: 'US', currencyCode: 'USD' },
             });
