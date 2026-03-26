@@ -15,7 +15,7 @@ const BASE_URL = `${ API_ROOT_URL}payment`
     
 initStripe({ 
   publishableKey: STRIPE_KEY,
-  merchantIdentifier: "merchant.com.pethero",
+  merchantIdentifier: "merchant.com.petheroplus.pethero",
   urlScheme: "pethero"
 }); 
 

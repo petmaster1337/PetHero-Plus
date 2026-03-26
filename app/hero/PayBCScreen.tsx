@@ -124,7 +124,7 @@ console.log(item)
   return (
     <StripeProvider 
     publishableKey= { STRIPE_KEY }
-    merchantIdentifier="merchant.com.pethero"
+    merchantIdentifier="merchant.com.petheroplus.pethero"
     urlScheme="pethero"
     >
       <View style={styles.container1}>
