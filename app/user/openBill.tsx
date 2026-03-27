@@ -12,6 +12,9 @@ import {
   CardFieldProps,
   isPlatformPaySupported,
   createPaymentMethod,
+  confirmPlatformPayPayment,
+  PlatformPay,
+  confirmPayment,
 } from "@stripe/stripe-react-native";
 import { Data } from '@/constants/Services';
 import { removeAttention } from '@/services/attention.service';
@@ -120,36 +123,44 @@ const OpenBill = () => {
     const filed = answer.filed;
     
     const finalizePayment = async () => {
-    if (error) {
-      Alert.alert(`Payment Failed \n ${error}`);
-      return;
-    } else {
-      Alert.alert("Payment Successful");
-      try { 
-        if (user?._id && contract?.uid) {
-          await removeAttention(token, String(user._id), String(contract.uid));
-          console.log(137, 'att removed')
+        let result;
+
+        if (type === "card") {
+        result = await confirmPayment(client_secret, {
+            paymentMethodType: "Card",
+        });
+        } else {
+        if (Platform.OS === "ios") {
+            result = await confirmPlatformPayPayment(client_secret, {
+            applePay: {
+                cartItems: [
+                {
+                    paymentType: "Immediate" as PlatformPay.PaymentType.Immediate, 
+                    label: `Pet Hero ${ contract.service }`, 
+                    amount: String(price)
+                }],
+                     merchantCountryCode: 'US', 
+                     currencyCode: 'USD' 
+                },    
+            });
+        } else {
+            result = await confirmPlatformPayPayment(client_secret, {
+            googlePay: {amount: Math.round(100 * Number(price)), testEnv: false, merchantCountryCode: 'US', currencyCode: 'USD' },
+            });
         }
-        if (heroUser?._id && contract?.uid) {
-          await removeAttention(token, String(heroUser._id), String(contract.uid));
-          console.log(141, 'att removed')
         }
-        if (heroUser?.notification)
-          await methods.sendPushNotification(heroUser.notification, "Pet Hero", "Price Accepted");
-        if (user?.notification)
-          await methods.sendPushNotification(user.notification, "Pet Hero", "Price Accepted");
-        contract.status = "requested";
-        contract.step = "requested";
-        if (contract._id)
-          await updateContract(contract._id, contract, token);
-        router.replace(`/message?message:'Successfully Filed!'`);
-      } catch (e) {
-        console.log("Error finalizing payment:", e);
-      }
-    }
+
+        const { error: payError, paymentIntent } = result;
+
+        if (payError) {
+        Alert.alert("Payment Failed", payError.message);
+        return;
+        }
+
+        Alert.alert("Payment Successful", paymentIntent?.status);
   };
 
-    finalizePayment();
+    await finalizePayment();
 
   } catch (err: any) {
     Alert.alert("Payment Error", err.message || "An unexpected error occurred");

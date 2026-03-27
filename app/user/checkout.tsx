@@ -100,8 +100,8 @@ const CheckoutScreen = () => {
                 googlePay: {amount: Math.round(100 * Number(amount)), testEnv: false, merchantCountryCode: 'US', currencyCode: 'USD' },
             });
             finalizePayment(error, paymentIntent);
-            }
         }
+    }
 
     } catch (error: any) {
       Alert.alert("Payment Error", `${error?.message}` || JSON.stringify(error));

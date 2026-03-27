@@ -8,8 +8,14 @@ import {
   StripeProvider,
   CardFieldProps,
   isPlatformPaySupported,
-  confirmPlatformPayPayment
+  confirmPlatformPayPayment,
+  PlatformPay,
+  StripeError,
+  ConfirmPaymentError,
+  PlatformPayError
 } from "@stripe/stripe-react-native";
+import { Platform } from "react-native";
+import { Result } from "@stripe/stripe-react-native/lib/typescript/src/types/PaymentIntent";
 
 const BASE_URL = `${ API_ROOT_URL}payment`
     
@@ -74,20 +80,20 @@ export const confirmPayment = async (type: string, price: number, service: strin
     if (type === "card") {
       paymentResult = await confirmPayment(client_secret, { paymentMethodType: "Card" });
     } else {
-      paymentResult = await confirmPlatformPayPayment(client_secret, {
-        applePay: {
-          cartItems: [
-            { label: `Pet Hero ${ service }`, amount: price.toFixed(2), paymentType: "Immediate" as any },
-          ],
-          merchantCountryCode: "US",
-          currencyCode: "USD",
-        },
-        googlePay: {
-          amount: Math.round(price * 100),
-          currencyCode: "USD",
-          testEnv: false,
-          merchantCountryCode: "US",
-        },
-      });
+
+        if (Platform.OS === 'ios')  {
+            const { error, paymentIntent } = await confirmPlatformPayPayment(client_secret, {
+                applePay: {cartItems: [{ paymentType: "Immediate" as PlatformPay.PaymentType.Immediate, label: `Pet Hero ${ service }`, amount: String(price) }], merchantCountryCode: 'US', currencyCode: 'USD' },
+            });
+
+        } else {
+            const { error, paymentIntent } = await confirmPlatformPayPayment(client_secret, {
+                googlePay: {amount: Math.round(100 * Number(price)), testEnv: false, merchantCountryCode: 'US', currencyCode: 'USD' },
+            });
+        }
+
+      ////
     }
+
+
 }

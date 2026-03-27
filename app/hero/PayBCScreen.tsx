@@ -9,7 +9,8 @@ import {
   ConfirmPaymentError,
   PlatformPayError,
   StripeError,
-  StripeProvider
+  StripeProvider,
+  PlatformPay
 } from "@stripe/stripe-react-native";
 import { useAuth } from "@/providers/AuthProvider";
 import { API_ROOT_URL, BC_FEE, CHECKR_INTEGRATION_URL, STRIPE_KEY } from "@/config";
@@ -86,12 +87,29 @@ console.log(item)
         });
         await finalizePayment(error, paymentIntent);
       } else {
-        const { error, paymentIntent } = await confirmPlatformPayPayment(client_secret, {
-        googlePay: {amount: 100 * amount, testEnv: false, merchantCountryCode: 'US', currencyCode: 'USD' },
-        applePay: {cartItems: [{ paymentType: "Immediate" as any, label: `Pet Hero Products`, amount: amount.toFixed(2) }], merchantCountryCode: 'US', currencyCode: 'USD' },
-      });
+    //     const { error, paymentIntent } = await confirmPlatformPayPayment(client_secret, {
+    //     googlePay: {amount: 100 * amount, testEnv: false, merchantCountryCode: 'US', currencyCode: 'USD' },
+    //     applePay: {cartItems: [{ paymentType: "Immediate" as any, label: `Pet Hero Products`, amount: amount.toFixed(2) }], merchantCountryCode: 'US', currencyCode: 'USD' },
+    //   });
               
-      await finalizePayment(error, paymentIntent);
+    //   await finalizePayment(error, paymentIntent);
+    /////////////
+        if (Platform.OS === 'ios')  {
+            console.log('CURRENT AMOUNT', amount);
+            const { error, paymentIntent } = await confirmPlatformPayPayment(client_secret, {
+                applePay: {cartItems: [{ paymentType: "Immediate" as PlatformPay.PaymentType.Immediate, label: `Background Check - Pet Hero`, amount: String(amount) }], merchantCountryCode: 'US', currencyCode: 'USD' },
+            });
+            finalizePayment(error, paymentIntent);
+
+        } else {
+            console.log('CURRENT AMOUNT', Math.round(100 * Number(amount)), ' ')
+            const { error, paymentIntent } = await confirmPlatformPayPayment(client_secret, {
+                googlePay: {amount: Math.round(100 * Number(amount)), testEnv: false, merchantCountryCode: 'US', currencyCode: 'USD' },
+            });
+            finalizePayment(error, paymentIntent);
+        }
+
+      /////////////
     }
 
     } catch (error: any) {
